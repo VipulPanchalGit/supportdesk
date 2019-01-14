@@ -6,7 +6,7 @@ public enum CategoryFAQ {
     ,ACCOUNT("ACCT")
     ,PASSWORD("PSWD")
     ,FRAUD("FRAUD")
-    ,SUBSCRIPTION("DESC")
+    ,SUBSCRIPTION("SUBS")
     ,SHIPMENT("SHIPMNT")
     ,RETURNS("RETRNS");
 

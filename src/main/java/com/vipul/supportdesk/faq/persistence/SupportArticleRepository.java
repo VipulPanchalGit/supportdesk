@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface SupportArticleRepository extends MongoRepository<SupportArticle, String> {
     public List<SupportArticle> findAllByLabelsContainingOrderByArticleId(String label);
-    public List<SupportArticle> findAllByCategoryContainingOrderByArticleId(CategoryFAQ cat);
+    public SupportArticle findAllByCategoryAndArticleIdOrderByArticleId(CategoryFAQ cat, String articleId);
+    public List<SupportArticle> findAllByCategoryOrderByArticleId(CategoryFAQ cat);
     public SupportArticle findSupportArticleByArticleId(String id);
 }
