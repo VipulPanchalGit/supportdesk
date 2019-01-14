@@ -11,6 +11,7 @@ public class SupportArticle {
 
     private CategoryFAQ category;
     private List<String> labels;
+    private String articleTitle;
     private String articleText;
 
     public SupportArticle(String articleId) {
@@ -33,12 +34,35 @@ public class SupportArticle {
         this.labels = labels;
     }
 
+    public String getArticleTitle() {
+        return articleTitle;
+    }
+
+    public void setArticleTitle(String articleTitle) {
+        this.articleTitle = articleTitle;
+    }
+
     public String getArticleText() {
         return articleText;
     }
 
     public void setArticleText(String articleText) {
         this.articleText = articleText;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SupportArticle)) return false;
+        SupportArticle that = (SupportArticle) o;
+        return articleId.equals(that.articleId) &&
+                getCategory() == that.getCategory() &&
+                getArticleTitle().equals(that.getArticleTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(articleId, getCategory(), getArticleTitle());
     }
 
     @Override
@@ -49,19 +73,5 @@ public class SupportArticle {
                 ", labels=" + labels +
                 ", articleText='" + articleText + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof SupportArticle)) return false;
-        SupportArticle that = (SupportArticle) o;
-        return articleId.equals(that.articleId) &&
-                getCategory() == that.getCategory();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(articleId, getCategory());
     }
 }
